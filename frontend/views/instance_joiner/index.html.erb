@@ -1,0 +1,39 @@
+<%= setup_context :title => "Instance Joiner" %>
+
+<div class="row">
+
+    <%= render_aspace_partial :partial => "shared/flash_messages" %>
+
+    <%= form_for @job, :as => "job", :url => {:action => :create}, :html => {:id => "jobfileupload", :class => 'form-horizontal aspace-record-form',  :multipart => true} do |form| %>
+       <%= form_context :job, @job do |form| %> 
+          <div class="record-pane">
+            <%= link_to_help :topic => "job" %>
+            <h2>Instance Joiner</h2>
+
+            <div class="alert alert-info">
+              <p>This plugin will submit a job that will "join" all instances associated to a resource or archival object record.
+              What this means is that resources/archival objects that have multiple instances with containers will have those containers
+              merged into a single container associated to a single instance.
+              This job runs on all records in the repository.  
+              </p>
+            </div>
+            <%= render_aspace_partial :partial => "shared/form_messages", :locals => {:object => @job, :form => form} %>
+            <input id="job_jsonmodel_type_" name="barcoder_job[jsonmodel_type]" type="hidden" value="instance_joiner_job">
+            <div class="form-actions">
+              <div class="btn-group">
+                <button type="submit" class="btn btn-primary"><%= I18n.t("job._frontend.actions.save") %></button>
+              </div>
+              <%= link_to I18n.t("actions.cancel"), :back, :class => "btn btn-cancel btn-default" %>
+            </div>
+          </div>
+    <% end %> 
+  <% end %> 
+
+
+  <script>
+    $(function() {
+       $(".linker:not(.initialised)").linker();
+     });
+  </script>
+
+</div>

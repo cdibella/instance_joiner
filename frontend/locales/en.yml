@@ -1,0 +1,7 @@
+en:
+  plugins:
+    instance_joiner:
+      label: Instance Joiner
+  enumerations:
+    job_type:
+      instance_joiner_job: Instance Joiner Job  
