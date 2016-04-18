@@ -1,4 +1,4 @@
-# ArchivesSpace Barcoder Plugin
+# ArchivesSpace Instance Joiner Plugin
 
 This plugin will take all resource and archival_object records and glue all
 their instances together.
